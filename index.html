@@ -1,923 +1,1460 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Método SWAY — Gatilhos + Script de WhatsApp</title>
+  <meta name="description" content="Aprenda a conduzir conversas de venda pelo WhatsApp com gatilhos, scripts, contorno de objeções e uma estrutura clara do primeiro contato ao fechamento.">
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1091769097150137');
-fbq('track', 'PageView');
-</script>
-
-<noscript>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1091769097150137');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
     <img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1091769097150137&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<title>Método SWAY — Gatilhos + Scripts para WhatsApp</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-2: #09090b;
+      --panel: #0f0f13;
+      --panel-2: #141419;
+      --text: #f6f6f8;
+      --muted: #aaaab3;
+      --muted-2: #777783;
+      --line: rgba(255,255,255,.09);
+      --purple: #7c3cff;
+      --purple-2: #9a65ff;
+      --purple-3: #c5a7ff;
+      --glow: rgba(124,60,255,.28);
+      --success: #6ee7a8;
+      --max: 1180px;
+      --radius: 22px;
+    }
 
-<meta name="description"
-    content="Aprenda a conduzir suas conversas de venda pelo WhatsApp com mais estratégia utilizando o Método SWAY.">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 4%, rgba(124,60,255,.13), transparent 26%),
+        radial-gradient(circle at 88% 20%, rgba(124,60,255,.08), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+    section { scroll-margin-top: 90px; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+    .narrow { max-width: 820px; margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: var(--purple-3);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--purple), transparent);
+    }
+    .gradient {
+      color: transparent;
+      background: linear-gradient(120deg, #fff 12%, #d9c8ff 42%, #8a4cff 82%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+    .muted { color: var(--muted); }
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
+    .section.alt {
+      background: linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.006));
+      border-top: 1px solid rgba(255,255,255,.045);
+      border-bottom: 1px solid rgba(255,255,255,.045);
+    }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+    .section-head.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-head.center .eyebrow { justify-content: center; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1 {
+      font-size: clamp(42px, 6.6vw, 82px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+    h2 {
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      margin-bottom: 18px;
+      font-weight: 900;
+    }
+    h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.72;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    /* TOPBAR / NAV */
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,5,5,.82);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, var(--purple), #3e168e);
+      box-shadow: 0 0 30px var(--glow);
+      font-size: 12px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13px;
+      color: #c7c7ce;
+    }
+    .nav-links a {
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
 
-<link rel="stylesheet" href="style.css">
+    /* BUTTONS */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 54px;
+      padding: 0 23px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .015em;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, #8a49ff, #6022d7);
+      color: #fff;
+      box-shadow: 0 14px 40px rgba(124,60,255,.24);
+      transition: transform .2s, box-shadow .2s, filter .2s;
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(124,60,255,.34);
+      filter: brightness(1.06);
+    }
+    .cta.small {
+      min-height: 42px;
+      padding: 0 16px;
+      font-size: 12px;
+      border-radius: 11px;
+    }
+    .cta.secondary {
+      background: rgba(255,255,255,.035);
+      box-shadow: none;
+      color: #d9d9df;
+    }
+    .cta.secondary:hover { background: rgba(255,255,255,.065); }
+    .micro {
+      margin-top: 12px;
+      color: #74747d;
+      font-size: 12px;
+    }
 
+    /* HERO */
+    .hero {
+      padding: 88px 0 92px;
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      right: -180px;
+      top: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,60,255,.18), transparent 65%);
+      filter: blur(12px);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+      gap: 72px;
+      align-items: center;
+    }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero-copy p.lead {
+      max-width: 690px;
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.68;
+      color: #b8b8c1;
+      margin-bottom: 28px;
+    }
+    .hero-points {
+      display: grid;
+      gap: 11px;
+      margin: 0 0 30px;
+    }
+    .hero-point {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d7d7dc;
+      font-size: 14px;
+    }
+    .hero-point i {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-size: 11px;
+      background: rgba(124,60,255,.14);
+      border: 1px solid rgba(154,101,255,.35);
+      color: var(--purple-3);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .hero-proof {
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #82828c;
+      font-size: 12px;
+    }
+    .hero-proof .line {
+      width: 52px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--purple), transparent);
+    }
 
+    /* BOOK MOCKUP */
+    .book-stage {
+      min-height: 580px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      perspective: 1200px;
+    }
+    .book-stage::before {
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,60,255,.28), rgba(124,60,255,.04) 48%, transparent 68%);
+      filter: blur(7px);
+    }
+    .book {
+      width: min(82%, 390px);
+      position: relative;
+      z-index: 2;
+      transform: rotateY(-11deg) rotateX(3deg) rotateZ(1deg);
+      filter: drop-shadow(0 44px 40px rgba(0,0,0,.6));
+      transition: transform .45s ease;
+    }
+    .book:hover { transform: rotateY(-4deg) rotateX(1deg) translateY(-6px); }
+    .book::after {
+      content: "";
+      position: absolute;
+      inset: 2.5% -3.5% 2.5% auto;
+      width: 5%;
+      border-radius: 0 5px 5px 0;
+      background: linear-gradient(90deg, #4d238b, #1b1227);
+      transform: translateX(78%);
+      z-index: -1;
+    }
+    .book img {
+      width: 100%;
+      border-radius: 5px 2px 2px 5px;
+      border: 1px solid rgba(255,255,255,.11);
+      background: #111;
+    }
+    .book-badge {
+      position: absolute;
+      right: -24px;
+      bottom: 72px;
+      z-index: 4;
+      padding: 12px 15px;
+      border-radius: 14px;
+      background: rgba(15,15,19,.90);
+      border: 1px solid rgba(154,101,255,.26);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.35);
+    }
+    .book-badge strong { display: block; font-size: 13px; }
+    .book-badge span { color: #9d9da7; font-size: 11px; }
+
+    /* PROBLEM */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .pain-list {
+      display: grid;
+      gap: 13px;
+    }
+    .pain {
+      display: flex;
+      gap: 14px;
+      padding: 18px 19px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.018);
+    }
+    .pain b {
+      color: #f1f1f3;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .pain span {
+      color: #8f8f98;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .pain-icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: rgba(124,60,255,.11);
+      color: var(--purple-3);
+      border: 1px solid rgba(124,60,255,.2);
+    }
+
+    /* DEMO */
+    .demo {
+      border: 1px solid rgba(154,101,255,.22);
+      background:
+        linear-gradient(145deg, rgba(124,60,255,.075), transparent 45%),
+        #0d0d11;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 35px 80px rgba(0,0,0,.24);
+    }
+    .demo-top {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #8d8d97;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .dots { display: flex; gap: 6px; }
+    .dots i { width: 7px; height: 7px; border-radius: 50%; background: #3d3d44; }
+    .demo-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .demo-col {
+      padding: 32px;
+      min-height: 330px;
+    }
+    .demo-col + .demo-col { border-left: 1px solid var(--line); }
+    .demo-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .demo-label.bad { color: #c7c7ce; }
+    .demo-label.good { color: var(--purple-3); }
+    .bubble {
+      max-width: 90%;
+      padding: 13px 15px;
+      border-radius: 15px;
+      margin-bottom: 13px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .bubble.client {
+      margin-left: auto;
+      background: #202027;
+      color: #e6e6e9;
+      border-bottom-right-radius: 4px;
+    }
+    .bubble.seller {
+      background: #15151b;
+      border: 1px solid var(--line);
+      color: #bdbdc5;
+      border-bottom-left-radius: 4px;
+    }
+    .bubble.sway {
+      background: rgba(124,60,255,.12);
+      border: 1px solid rgba(154,101,255,.28);
+      color: #efe8ff;
+      border-bottom-left-radius: 4px;
+    }
+    .demo-note {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: #92929c;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .demo-note strong { color: #fff; }
+
+    /* GRID CARDS */
+    .cards-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .trigger-card {
+      padding: 24px 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      min-height: 190px;
+      transition: transform .25s, border-color .25s, background .25s;
+    }
+    .trigger-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(154,101,255,.35);
+      background: linear-gradient(180deg, rgba(124,60,255,.075), rgba(255,255,255,.012));
+    }
+    .trigger-num {
+      display: block;
+      margin-bottom: 28px;
+      color: #6f6f79;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+    .trigger-card p { font-size: 13px; line-height: 1.55; margin-bottom: 0; }
+
+    /* FLOW */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      position: relative;
+    }
+    .flow-step {
+      padding: 22px 17px;
+      border-radius: 16px;
+      background: #0f0f13;
+      border: 1px solid var(--line);
+      position: relative;
+      min-height: 150px;
+    }
+    .flow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -10px;
+      top: 45px;
+      width: 20px;
+      text-align: center;
+      color: var(--purple-2);
+      z-index: 5;
+      font-weight: 900;
+    }
+    .flow-step span {
+      display: block;
+      color: var(--purple-3);
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .flow-step b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .flow-step p {
+      font-size: 12px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* RECEIVE */
+    .receive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .receive-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.018);
+    }
+    .receive-card .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      background: rgba(124,60,255,.11);
+      border: 1px solid rgba(124,60,255,.23);
+      color: var(--purple-3);
+    }
+    .receive-card p { margin-bottom: 0; font-size: 14px; }
+
+    /* PRODUCT DISPLAY */
+    .product-block {
+      display: grid;
+      grid-template-columns: .74fr 1.26fr;
+      gap: 60px;
+      align-items: center;
+      padding: 46px;
+      border: 1px solid rgba(154,101,255,.2);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 6% 10%, rgba(124,60,255,.1), transparent 30%),
+        #0c0c10;
+      overflow: hidden;
+    }
+    .product-cover {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 430px;
+    }
+    .product-cover img {
+      width: min(100%, 290px);
+      border-radius: 4px;
+      transform: rotate(-2deg);
+      box-shadow: 0 35px 70px rgba(0,0,0,.58);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .product-copy ul {
+      list-style: none;
+      padding: 0;
+      margin: 26px 0 30px;
+      display: grid;
+      gap: 12px;
+    }
+    .product-copy li {
+      color: #d8d8de;
+      font-size: 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .product-copy li::before {
+      content: "✓";
+      color: var(--purple-3);
+      font-weight: 900;
+    }
+
+    /* ECOSYSTEM */
+    .ecosystem {
+      display: grid;
+      grid-template-columns: 1.2fr .9fr .9fr;
+      gap: 16px;
+    }
+    .product-card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      min-height: 260px;
+      background: #0d0d11;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card.active {
+      border-color: rgba(154,101,255,.32);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(124,60,255,.16), transparent 38%),
+        #0e0e13;
+    }
+    .product-card.placeholder {
+      background: linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.006));
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      color: #a7a7b0;
+      margin-bottom: 42px;
+    }
+    .status.live {
+      color: #c8ffe1;
+      border-color: rgba(110,231,168,.2);
+      background: rgba(110,231,168,.06);
+    }
+    .status.live::before {
+      content: "";
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 12px rgba(110,231,168,.55);
+    }
+    .status.soon::before {
+      content: "";
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--purple-2);
+      box-shadow: 0 0 12px rgba(154,101,255,.5);
+    }
+    .product-card p { font-size: 13px; }
+    .product-card .mini-link {
+      position: absolute;
+      bottom: 24px;
+      left: 26px;
+      color: #d9ccff;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    /* OFFER */
+    .offer {
+      padding: 100px 0;
+    }
+    .offer-box {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px;
+      border-radius: 32px;
+      text-align: center;
+      border: 1px solid rgba(154,101,255,.28);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(124,60,255,.18), transparent 40%),
+        linear-gradient(180deg, #101015, #09090c);
+      box-shadow: 0 40px 110px rgba(0,0,0,.38);
+    }
+    .offer-box .mini-checks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      margin: 25px 0 30px;
+      color: #cacad1;
+      font-size: 13px;
+    }
+    .offer-box .mini-checks span::before {
+      content: "✓";
+      color: var(--purple-3);
+      margin-right: 7px;
+      font-weight: 900;
+    }
+
+    /* FAQ */
+    .faq {
+      display: grid;
+      gap: 10px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,.015);
+      padding: 0 20px;
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 28px 20px 0;
+      font-weight: 800;
+      font-size: 14px;
+      position: relative;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 17px;
+      color: var(--purple-3);
+      font-size: 22px;
+      font-weight: 400;
+    }
+    details[open] summary::after { content: "–"; }
+    details p {
+      padding: 0 0 20px;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 34px 0 90px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    footer p { font-size: 11px; margin: 0; color: #696973; }
+    .footer-right { text-align: right; }
+
+    /* FLOATING MOBILE CTA */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 900;
+    }
+    .mobile-cta .cta { width: 100%; box-shadow: 0 18px 55px rgba(0,0,0,.55); }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* LEAD GATE */
+    html.lead-locked,
+    body.lead-locked {
+      overflow: hidden !important;
+    }
+    .lead-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(124,60,255,.19), transparent 32%),
+        #050505;
+      overflow-y: auto;
+    }
+    .lead-box {
+      width: min(100%, 470px);
+      padding: 34px 30px 30px;
+      border: 1px solid rgba(154,101,255,.28);
+      border-radius: 24px;
+      background: rgba(12,12,16,.96);
+      box-shadow: 0 36px 100px rgba(0,0,0,.62);
+    }
+    .lead-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .05em;
+    }
+    .lead-logo span {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: linear-gradient(145deg, var(--purple), #44179d);
+      box-shadow: 0 0 30px var(--glow);
+      font-size: 11px;
+    }
+    .lead-box h2 {
+      font-size: clamp(30px, 8vw, 44px);
+      margin-bottom: 12px;
+      letter-spacing: -.045em;
+    }
+    .lead-box > p {
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+    #lead-form {
+      display: grid;
+      gap: 10px;
+    }
+    #lead-form label {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #e9e9ec;
+    }
+    #lead-form input {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      outline: none;
+      background: #111116;
+      color: #fff;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    #lead-form input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(124,60,255,.12);
+    }
+    #lead-form input::placeholder { color: #62626c; }
+    #lead-submit {
+      margin-top: 10px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #8b4dff, #5f22d5);
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .02em;
+    }
+    #lead-submit:disabled { opacity: .65; cursor: wait; }
+    .lead-message {
+      margin: 0;
+      min-height: 17px;
+      color: #ff9999;
+      font-size: 11px;
+    }
+    #lead-form small {
+      margin-top: 5px;
+      color: #686872;
+      font-size: 10px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 1050px) {
+      .cards-5 { grid-template-columns: repeat(3, 1fr); }
+      .flow { grid-template-columns: repeat(3, 1fr); }
+      .flow-step:nth-child(3)::after { display: none; }
+      .hero-grid { grid-template-columns: 1fr .8fr; gap: 42px; }
+      .book-stage { min-height: 500px; }
+    }
+    @media (max-width: 820px) {
+      .nav-links a:not(.cta) { display: none; }
+      .hero { padding-top: 62px; min-height: auto; }
+      .hero-grid,
+      .problem-grid,
+      .product-block {
+        grid-template-columns: 1fr;
+      }
+      .hero-grid { gap: 28px; }
+      .hero-copy { text-align: center; }
+      .hero-copy p.lead { margin-inline: auto; }
+      .hero-points { max-width: 480px; margin-inline: auto; margin-bottom: 28px; text-align: left; }
+      .hero-actions { justify-content: center; }
+      .hero-proof { justify-content: center; }
+      .book-stage { min-height: 470px; }
+      .book { width: min(66%, 340px); }
+      .demo-body { grid-template-columns: 1fr; }
+      .demo-col + .demo-col { border-left: 0; border-top: 1px solid var(--line); }
+      .cards-5 { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .flow-step::after { display: none !important; }
+      .receive-grid { grid-template-columns: 1fr; }
+      .product-block { padding: 30px; gap: 30px; }
+      .product-cover { min-height: 350px; }
+      .ecosystem { grid-template-columns: 1fr; }
+      .footer-row { flex-direction: column; }
+      .footer-right { text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .section { padding: 72px 0; }
+      .nav { min-height: 62px; }
+      .nav-links .cta.small { display: none; }
+      h1 { font-size: clamp(40px, 12vw, 60px); }
+      h2 { font-size: clamp(32px, 9.5vw, 44px); }
+      .hero { padding: 56px 0 70px; }
+      .book-stage { min-height: 420px; }
+      .book { width: min(74%, 315px); }
+      .book-badge { right: -10px; bottom: 55px; }
+      .cards-5 { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .demo-col { padding: 24px 20px; }
+      .product-block { padding: 24px 18px; border-radius: 22px; }
+      .offer { padding: 72px 0; }
+      .offer-box { padding: 38px 20px; border-radius: 24px; }
+      .mobile-cta { display: block; }
+      footer { padding-bottom: 100px; }
+      .lead-box { padding: 28px 20px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
 <body>
 
-
-
-<!-- =========================================
-     PORTA DE CAPTURA DE LEADS — MÉTODO SWAY
-     ========================================= -->
-<div id="lead-gate" class="lead-gate" aria-modal="true" role="dialog">
+  <!-- PORTA DE CAPTURA -->
+  <div id="lead-gate" class="lead-gate" aria-modal="true" role="dialog">
     <div class="lead-box">
-        <div class="lead-badge">MÉTODO SWAY</div>
+      <div class="lead-logo"><span>SW</span> VG.SWAY</div>
+      <div class="eyebrow">Acesso ao conteúdo</div>
+      <h2>Antes de continuar.</h2>
+      <p>Preencha seus dados para acessar a apresentação completa do Método SWAY.</p>
 
-        <h2>Antes de continuar</h2>
+      <form id="lead-form" novalidate>
+        <label for="lead-name">Nome</label>
+        <input id="lead-name" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required>
 
-        <p>
-            Preencha seus dados para acessar o conteúdo do Método SWAY.
-        </p>
+        <label for="lead-whatsapp">WhatsApp</label>
+        <input id="lead-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
 
-        <form id="lead-form" novalidate>
-            <label for="lead-name">Nome</label>
-            <input
-                id="lead-name"
-                name="nome"
-                type="text"
-                autocomplete="name"
-                placeholder="Seu nome"
-                required
-            >
+        <label for="lead-email">E-mail</label>
+        <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
 
-            <label for="lead-whatsapp">WhatsApp</label>
-            <input
-                id="lead-whatsapp"
-                name="whatsapp"
-                type="tel"
-                autocomplete="tel"
-                inputmode="tel"
-                placeholder="(00) 00000-0000"
-                required
-            >
+        <button type="submit" id="lead-submit">ACESSAR O MÉTODO →</button>
+        <p id="lead-message" class="lead-message" aria-live="polite"></p>
 
-            <label for="lead-email">E-mail</label>
-            <input
-                id="lead-email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder="seuemail@exemplo.com"
-                required
-            >
-
-            <button type="submit" id="lead-submit">
-                CONTINUAR
-                <span>→</span>
-            </button>
-
-            <p id="lead-message" class="lead-message" aria-live="polite"></p>
-
-            <small>
-                Seus dados serão usados para registro do lead e comunicação relacionada ao Método SWAY.
-            </small>
-        </form>
+        <small>Seus dados são utilizados para registrar o acesso e comunicações relacionadas ao Método SWAY.</small>
+      </form>
     </div>
-</div>
+  </div>
 
-<style>
-    /* PORTA DE LEADS — não depende do style.css existente */
-    html.lead-locked,
-    body.lead-locked {
-        overflow: hidden !important;
-    }
+  <!-- NAVEGAÇÃO -->
+  <div class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <span class="brand-mark">SW</span>
+        VG.SWAY
+      </a>
+      <div class="nav-links">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#conteudo">O que você recebe</a>
+        <a href="#produtos">Produtos</a>
+        <a class="cta small" href="https://pay.kiwify.com.br/DbkFJGr" target="_blank" rel="noopener noreferrer">QUERO O MÉTODO</a>
+      </div>
+    </div>
+  </div>
 
-    .lead-gate {
-        position: fixed;
-        inset: 0;
-        z-index: 999999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background: #050505;
-        overflow-y: auto;
-        font-family: Inter, Arial, sans-serif;
-    }
+  <main id="inicio">
 
-    .lead-box {
-        width: min(100%, 460px);
-        padding: 34px 28px;
-        border: 1px solid rgba(124, 60, 255, 0.35);
-        border-radius: 22px;
-        background: #0b0b0d;
-        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
-        color: #fff;
-    }
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Método SWAY • Persuasão é técnica</div>
+          <h1>
+            Pare de <span class="gradient">improvisar</span><br>
+            na hora de vender.
+          </h1>
+          <p class="lead">
+            Um guia prático para transformar conversas de WhatsApp em uma sequência mais estratégica:
+            gatilhos mentais, mensagens para adaptar, contorno de objeções, follow-up e fechamento.
+          </p>
 
-    .lead-badge {
-        display: inline-block;
-        margin-bottom: 18px;
-        padding: 7px 11px;
-        border-radius: 999px;
-        border: 1px solid rgba(124, 60, 255, 0.45);
-        color: #b998ff;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1.4px;
-    }
+          <div class="hero-points">
+            <div class="hero-point"><i>✓</i> 5 gatilhos mentais essenciais aplicados à conversa</div>
+            <div class="hero-point"><i>✓</i> Fluxo do primeiro contato ao fechamento</div>
+            <div class="hero-point"><i>✓</i> Estruturas para “vou pensar”, preço e cliente que sumiu</div>
+          </div>
 
-    .lead-box h2 {
-        margin: 0 0 10px;
-        font-size: clamp(28px, 7vw, 42px);
-        line-height: 1.05;
-        font-weight: 900;
-    }
-
-    .lead-box > p {
-        margin: 0 0 24px;
-        color: #a4a4aa;
-        line-height: 1.6;
-        font-size: 15px;
-    }
-
-    #lead-form {
-        display: flex;
-        flex-direction: column;
-        gap: 9px;
-    }
-
-    #lead-form label {
-        margin-top: 7px;
-        color: #fff;
-        font-size: 13px;
-        font-weight: 700;
-    }
-
-    #lead-form input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 15px 16px;
-        border: 1px solid rgba(255, 255, 255, 0.10);
-        border-radius: 12px;
-        outline: none;
-        background: #111114;
-        color: #fff;
-        font: inherit;
-        font-size: 15px;
-        transition: border-color .2s, box-shadow .2s;
-    }
-
-    #lead-form input:focus {
-        border-color: #7c3cff;
-        box-shadow: 0 0 0 3px rgba(124, 60, 255, 0.12);
-    }
-
-    #lead-form input::placeholder {
-        color: #68686f;
-    }
-
-    #lead-submit {
-        margin-top: 14px;
-        width: 100%;
-        padding: 16px 18px;
-        border: 0;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #7c3cff, #9f6bff);
-        color: #fff;
-        cursor: pointer;
-        font: inherit;
-        font-size: 14px;
-        font-weight: 900;
-        letter-spacing: .3px;
-        transition: transform .2s, opacity .2s;
-    }
-
-    #lead-submit:hover {
-        transform: translateY(-1px);
-    }
-
-    #lead-submit:disabled {
-        opacity: .65;
-        cursor: wait;
-        transform: none;
-    }
-
-    #lead-submit span {
-        margin-left: 5px;
-    }
-
-    .lead-message {
-        min-height: 18px;
-        margin: 3px 0 0;
-        color: #ff8f8f;
-        font-size: 12px;
-        line-height: 1.4;
-    }
-
-    #lead-form small {
-        margin-top: 7px;
-        color: #66666d;
-        font-size: 10px;
-        line-height: 1.45;
-        text-align: center;
-    }
-
-    @media (max-width: 520px) {
-        .lead-gate {
-            padding: 15px;
-        }
-
-        .lead-box {
-            padding: 27px 20px;
-            border-radius: 18px;
-        }
-    }
-</style>
-
-<!-- HERO -->
-
-<header class="hero">
-
-    <div class="container">
-
-        <div class="hero-content">
-
-            <div class="badge">
-                MÉTODO SWAY
-            </div>
-
-            <h1>
-                Pare de perder vendas por
-                <span>não saber o que falar.</span>
-            </h1>
-
-            <p class="hero-subtitle">
-                Aprenda a conduzir conversas de venda pelo WhatsApp
-                utilizando gatilhos de comunicação e scripts práticos.
-            </p>
-
-            <a class="cta-button"
-                href="https://pay.kiwify.com.br/DbkFJGr"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                QUERO CONHECER O MÉTODO SWAY
-                <span>→</span>
-
+          <div class="hero-actions">
+            <a class="cta" href="https://pay.kiwify.com.br/DbkFJGr" target="_blank" rel="noopener noreferrer">
+              QUERO ACESSAR O MÉTODO SWAY <span>→</span>
             </a>
+            <a class="cta secondary" href="#demonstracao">VER COMO FUNCIONA</a>
+          </div>
 
-            <p class="secure-text">
-                🔒 Compra segura • Acesso digital
-            </p>
-
+          <div class="hero-proof">
+            <span class="line"></span>
+            Material digital • acesso pela Kiwify • aplicação prática no WhatsApp
+          </div>
         </div>
 
-        <div class="hero-card">
+        <div class="book-stage reveal">
+          <div class="book">
+            <img src="data:image/webp;base64,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" alt="Capa do e-book Método SWAY — Gatilhos + Script de WhatsApp">
+            <div class="book-badge">
+              <strong>Material principal</strong>
+              <span>Gatilhos + Script de WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-            <div class="mockup">
+    <!-- PROBLEMA -->
+    <section class="section alt">
+      <div class="container problem-grid">
+        <div class="section-head reveal">
+          <div class="eyebrow">O problema não é só o preço</div>
+          <h2>Você pode estar perdendo vendas <span class="gradient">na conversa.</span></h2>
+          <p>
+            Quando cada resposta depende do improviso, é fácil encerrar a conversa cedo demais,
+            insistir na hora errada ou apresentar uma oferta antes de entender o que o cliente realmente quer.
+          </p>
+        </div>
 
-                <div class="mockup-top">
-                    <span>●</span>
-                    <strong>MÉTODO SWAY</strong>
-                </div>
+        <div class="pain-list reveal">
+          <div class="pain">
+            <div class="pain-icon">01</div>
+            <div>
+              <b>“Vou pensar e te aviso.”</b><br>
+              <span>Você responde “beleza” e a conversa morre sem descobrir a objeção real.</span>
+            </div>
+          </div>
+          <div class="pain">
+            <div class="pain-icon">02</div>
+            <div>
+              <b>O cliente pergunta o preço e some.</b><br>
+              <span>A oferta foi apresentada antes de criar contexto, clareza e percepção de valor.</span>
+            </div>
+          </div>
+          <div class="pain">
+            <div class="pain-icon">03</div>
+            <div>
+              <b>Você não sabe quando fazer follow-up.</b><br>
+              <span>Ou some junto com o cliente, ou insiste tanto que a conversa fica desconfortável.</span>
+            </div>
+          </div>
+          <div class="pain">
+            <div class="pain-icon">04</div>
+            <div>
+              <b>Cada conversa começa do zero.</b><br>
+              <span>Sem uma estrutura, você depende do humor, da memória e do improviso para responder.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <div class="mockup-content">
+    <!-- DEMONSTRAÇÃO -->
+    <section class="section" id="demonstracao">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="eyebrow">Veja a diferença</div>
+          <h2>Responder não é o mesmo que <span class="gradient">conduzir uma venda.</span></h2>
+          <p>
+            O SWAY não foi pensado para transformar você em um robô de copiar e colar.
+            A proposta é entender a lógica da conversa e adaptar a resposta ao contexto.
+          </p>
+        </div>
 
-                    <small>GATILHOS + SCRIPTS</small>
+        <div class="demo reveal">
+          <div class="demo-top">
+            <div class="dots"><i></i><i></i><i></i></div>
+            EXEMPLO DE CONVERSA • OBJEÇÃO “VOU PENSAR”
+          </div>
 
-                    <h2>
-                        Venda melhor
-                        pelo WhatsApp.
-                    </h2>
-
-                    <p>
-                        Menos improviso.
-                        Mais estratégia.
-                    </p>
-
-                </div>
-
+          <div class="demo-body">
+            <div class="demo-col">
+              <div class="demo-label bad">Sem estratégia</div>
+              <div class="bubble client">Vou pensar e qualquer coisa te aviso.</div>
+              <div class="bubble seller">Beleza, qualquer coisa me chama.</div>
+              <div class="demo-note">
+                <strong>O que aconteceu?</strong><br>
+                A conversa foi encerrada sem descobrir se a dúvida era preço, confiança, urgência ou entendimento da oferta.
+              </div>
             </div>
 
+            <div class="demo-col">
+              <div class="demo-label good">Lógica SWAY</div>
+              <div class="bubble client">Vou pensar e qualquer coisa te aviso.</div>
+              <div class="bubble sway">
+                Sem problema. Antes de encerrar, vale entender se existe alguma dúvida específica que ainda está pesando na decisão.
+              </div>
+              <div class="demo-note">
+                <strong>A mudança:</strong><br>
+                em vez de pressionar, você mantém a conversa aberta e procura a objeção real antes de responder.
+              </div>
+            </div>
+          </div>
         </div>
 
-    </div>
-
-</header>
-
-
-<!-- DOR -->
-
-<section class="section dark">
-
-    <div class="container narrow">
-
-        <p class="section-label">
-            ISSO ACONTECE COM VOCÊ?
+        <p class="micro" style="text-align:center;margin-top:18px;">
+          Exemplo demonstrativo da lógica ensinada no material. O conteúdo completo traz a sequência e mensagens para adaptar.
         </p>
+      </div>
+    </section>
 
-        <h2>
-            O cliente pergunta,
-            você responde...
-            <span>e ele desaparece.</span>
-        </h2>
+    <!-- GATILHOS -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Capítulo 1</div>
+          <h2>5 gatilhos que você aprende a usar <span class="gradient">sem soar forçado.</span></h2>
+          <p>
+            O ponto não é jogar frases prontas na conversa. É entender o efeito de cada gatilho e usar apenas quando ele fizer sentido.
+          </p>
+        </div>
 
-        <p>
-            Você explica seu produto, responde as perguntas,
-            manda o preço e espera uma resposta.
-        </p>
+        <div class="cards-5">
+          <article class="trigger-card reveal">
+            <span class="trigger-num">01</span>
+            <h3>Escassez</h3>
+            <p>Como comunicar uma limitação real de quantidade, agenda ou disponibilidade.</p>
+          </article>
+          <article class="trigger-card reveal">
+            <span class="trigger-num">02</span>
+            <h3>Prova social</h3>
+            <p>Como reduzir risco percebido mostrando experiências reais de outras pessoas.</p>
+          </article>
+          <article class="trigger-card reveal">
+            <span class="trigger-num">03</span>
+            <h3>Autoridade</h3>
+            <p>Como transmitir domínio e segurança sem transformar a conversa em autopromoção.</p>
+          </article>
+          <article class="trigger-card reveal">
+            <span class="trigger-num">04</span>
+            <h3>Reciprocidade</h3>
+            <p>Como entregar valor antes de pedir uma decisão, criando uma troca mais natural.</p>
+          </article>
+          <article class="trigger-card reveal">
+            <span class="trigger-num">05</span>
+            <h3>Urgência</h3>
+            <p>Como trazer prazo para a decisão quando existe uma condição real de tempo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <p>
-            Então passam minutos.
-            Horas.
-            Dias.
-        </p>
+    <!-- FLUXO -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="eyebrow">Do primeiro contato ao fechamento</div>
+          <h2>Uma conversa com <span class="gradient">próximo passo.</span></h2>
+          <p>
+            O método organiza o processo para você não tentar fechar a venda antes de entender a pessoa — e também não deixar a conversa morrer sem direção.
+          </p>
+        </div>
 
-        <p class="highlight">
-            E o cliente simplesmente some.
-        </p>
+        <div class="flow">
+          <div class="flow-step reveal">
+            <span>01</span>
+            <b>Abordagem</b>
+            <p>Abra a conversa usando o contexto real do interesse do cliente.</p>
+          </div>
+          <div class="flow-step reveal">
+            <span>02</span>
+            <b>Quebra de gelo</b>
+            <p>Faça a pessoa falar antes de apresentar o que você vende.</p>
+          </div>
+          <div class="flow-step reveal">
+            <span>03</span>
+            <b>Oferta</b>
+            <p>Conecte o que você oferece à dor ou necessidade que ela acabou de revelar.</p>
+          </div>
+          <div class="flow-step reveal">
+            <span>04</span>
+            <b>Objeções</b>
+            <p>Trate preço, dúvida e “vou pensar” sem entrar em confronto.</p>
+          </div>
+          <div class="flow-step reveal">
+            <span>05</span>
+            <b>Fechamento</b>
+            <p>Deixe claro o próximo passo: pagar, confirmar, agendar ou avançar.</p>
+          </div>
+          <div class="flow-step reveal">
+            <span>06</span>
+            <b>Reengajamento</b>
+            <p>Retome conversas que esfriaram sem parecer cobrança.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <p>
-            Muitas vezes, o problema não está no produto.
-            Está na maneira como a conversa está sendo conduzida.
-        </p>
+    <!-- O QUE RECEBE -->
+    <section class="section alt" id="conteudo">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Dentro do Método SWAY</div>
+          <h2>Você não recebe só “dicas”. <span class="gradient">Recebe uma estrutura.</span></h2>
+        </div>
 
-    </div>
+        <div class="receive-grid">
+          <article class="receive-card reveal">
+            <div class="icon">01</div>
+            <h3>Gatilhos explicados de forma prática</h3>
+            <p>Escassez, prova social, autoridade, reciprocidade e urgência com lógica de uso e aplicação.</p>
+          </article>
 
-</section>
+          <article class="receive-card reveal">
+            <div class="icon">02</div>
+            <h3>Mensagens para copiar e adaptar</h3>
+            <p>Modelos de WhatsApp que servem como base para você ajustar ao seu produto, serviço e tom de voz.</p>
+          </article>
 
+          <article class="receive-card reveal">
+            <div class="icon">03</div>
+            <h3>Script completo de conversa</h3>
+            <p>Uma sequência do primeiro contato ao fechamento para reduzir o improviso em cada etapa.</p>
+          </article>
 
-<!-- SOLUÇÃO -->
+          <article class="receive-card reveal">
+            <div class="icon">04</div>
+            <h3>Objeções e follow-up</h3>
+            <p>Estruturas para lidar com preço, “vou pensar” e clientes que pararam de responder.</p>
+          </article>
 
-<section class="section">
+          <article class="receive-card reveal">
+            <div class="icon">05</div>
+            <h3>Erros que afastam clientes</h3>
+            <p>O que evitar: mensagem genérica, insistência excessiva, falar antes de ouvir e não definir o próximo passo.</p>
+          </article>
 
-    <div class="container">
+          <article class="receive-card reveal">
+            <div class="icon">06</div>
+            <h3>Checklist de fechamento</h3>
+            <p>Uma revisão rápida para usar antes de mandar mensagens de venda até essa lógica virar hábito.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="section-heading">
+    <!-- PRODUTO PRINCIPAL -->
+    <section class="section">
+      <div class="container">
+        <div class="product-block reveal">
+          <div class="product-cover">
+            <img src="data:image/webp;base64,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" alt="Capa do Método SWAY">
+          </div>
 
-            <p class="section-label">
-                CONHEÇA O SWAY
-            </p>
-
-            <h2>
-                Pare de improvisar
-                <span>cada conversa.</span>
-            </h2>
-
+          <div class="product-copy">
+            <div class="eyebrow">Produto principal VG.SWAY</div>
+            <h2>Método SWAY</h2>
             <p>
-                O Método SWAY foi criado para ajudar você a estruturar
-                melhor suas conversas de venda pelo WhatsApp.
+              <strong style="color:#fff;">Gatilhos + Script de WhatsApp</strong><br>
+              Um material direto ao ponto para quem precisa conduzir melhor conversas comerciais sem depender do improviso.
             </p>
 
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-
-                <div class="icon">💬</div>
-
-                <h3>
-                    Scripts práticos
-                </h3>
-
-                <p>
-                    Tenha estruturas de mensagens para diferentes
-                    momentos da conversa com seu cliente.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="icon">🧠</div>
-
-                <h3>
-                    Gatilhos de comunicação
-                </h3>
-
-                <p>
-                    Entenda como utilizar elementos de comunicação
-                    para conduzir melhor suas conversas.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="icon">🎯</div>
-
-                <h3>
-                    Mais estratégia
-                </h3>
-
-                <p>
-                    Tenha uma estrutura para não depender apenas
-                    do improviso durante uma venda.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- O QUE RECEBE -->
-
-<section class="section dark">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <p class="section-label">
-                DENTRO DO MÉTODO
-            </p>
-
-            <h2>
-                Tudo para você
-                <span>melhorar suas conversas.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="product-grid">
-
-            <div class="product-card">
-
-                <span class="number">01</span>
-
-                <h3>
-                    Gatilhos
-                </h3>
-
-                <p>
-                    Estratégias de comunicação para tornar suas
-                    abordagens mais direcionadas e persuasivas.
-                </p>
-
-            </div>
-
-
-            <div class="product-card">
-
-                <span class="number">02</span>
-
-                <h3>
-                    Scripts
-                </h3>
-
-                <p>
-                    Modelos práticos que você pode adaptar
-                    para suas próprias conversas.
-                </p>
-
-            </div>
-
-
-            <div class="product-card">
-
-                <span class="number">03</span>
-
-                <h3>
-                    Estrutura
-                </h3>
-
-                <p>
-                    Uma forma mais organizada de pensar e conduzir
-                    suas conversas de venda.
-                </p>
-
-            </div>
-
-
-            <div class="product-card">
-
-                <span class="number">04</span>
-
-                <h3>
-                    Aplicação
-                </h3>
-
-                <p>
-                    Use o conhecimento como base para adaptar
-                    sua comunicação ao seu produto ou serviço.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- COMO FUNCIONA -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <p class="section-label">
-                SIMPLES E PRÁTICO
-            </p>
-
-            <h2>
-                Comece em
-                <span>4 passos.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="steps">
-
-            <div class="step">
-
-                <span>01</span>
-
-                <div>
-                    <h3>Acesse</h3>
-                    <p>
-                        Faça sua compra e receba as instruções
-                        de acesso ao material.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <span>02</span>
-
-                <div>
-                    <h3>Aprenda</h3>
-                    <p>
-                        Entenda os gatilhos e a lógica por trás
-                        das estratégias.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <span>03</span>
-
-                <div>
-                    <h3>Adapte</h3>
-                    <p>
-                        Escolha os scripts que fazem sentido
-                        para sua situação.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <span>04</span>
-
-                <div>
-                    <h3>Aplique</h3>
-                    <p>
-                        Coloque em prática nas suas próprias
-                        conversas de venda.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PARA QUEM É -->
-
-<section class="section dark">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <p class="section-label">
-                É PARA VOCÊ?
-            </p>
-
-            <h2>
-                O Método SWAY é para
-                <span>quem vende.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="check-list">
-
-            <div>✓ Quem vende produtos pelo WhatsApp</div>
-
-            <div>✓ Afiliados e empreendedores digitais</div>
-
-            <div>✓ Prestadores de serviços</div>
-
-            <div>✓ Pessoas que têm dificuldade para responder clientes</div>
-
-            <div>✓ Quem quer melhorar sua comunicação comercial</div>
-
-            <div>✓ Pequenos negócios que utilizam WhatsApp para vender</div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- NÃO É -->
-
-<section class="section">
-
-    <div class="container narrow">
-
-        <p class="section-label">
-            IMPORTANTE
-        </p>
-
-        <h2>
-            O SWAY não é uma
-            <span>fórmula mágica.</span>
-        </h2>
-
-        <p>
-            O método não promete vendas automáticas ou resultados
-            garantidos.
-        </p>
-
-        <p>
-            Ele oferece estratégias e estruturas que podem ajudar
-            você a melhorar sua comunicação e conduzir suas
-            conversas de maneira mais organizada.
-        </p>
-
-        <p>
-            Seus resultados dependem de fatores como produto,
-            oferta, público, abordagem e aplicação.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- OFERTA -->
-
-<section class="offer">
-
-    <div class="container">
-
-        <div class="offer-box">
-
-            <p class="section-label">
-                ACESSO AO MÉTODO
-            </p>
-
-            <h2>
-                Método SWAY
-            </h2>
-
-            <p class="offer-description">
-                Gatilhos + Scripts de WhatsApp
-                para melhorar suas conversas de venda.
-            </p>
-
-
-            <div class="offer-items">
-
-                <div>✓ Gatilhos de comunicação</div>
-
-                <div>✓ Scripts para WhatsApp</div>
-
-                <div>✓ Estrutura de conversas</div>
-
-                <div>✓ Material digital</div>
-
-            </div>
-
-
-            <!-- BOTÃO PRINCIPAL -->
-
-            <a class="cta-button big"
-                href="https://pay.kiwify.com.br/DbkFJGr"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                QUERO O MÉTODO SWAY
-                <span>→</span>
-
+            <ul>
+              <li>5 gatilhos mentais essenciais</li>
+              <li>Aplicação dos gatilhos no WhatsApp</li>
+              <li>Mensagens prontas para adaptar</li>
+              <li>Script da abordagem ao fechamento</li>
+              <li>Contorno de objeções e reengajamento</li>
+              <li>Checklist final de venda</li>
+            </ul>
+
+            <a class="cta" href="https://pay.kiwify.com.br/DbkFJGr" target="_blank" rel="noopener noreferrer">
+              ACESSAR O MÉTODO SWAY <span>→</span>
             </a>
+            <div class="micro">Pagamento processado pela Kiwify • produto digital</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <p class="secure-text">
-                🔒 Pagamento processado com segurança pela Kiwify
-            </p>
-
+    <!-- ECOSSISTEMA -->
+    <section class="section alt" id="produtos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Ecossistema VG.SWAY</div>
+          <h2>Um produto hoje. <span class="gradient">Uma linha de soluções em construção.</span></h2>
+          <p>
+            O Método SWAY é o primeiro material da linha. Novos produtos serão adicionados conforme forem finalizados.
+          </p>
         </div>
 
-    </div>
+        <div class="ecosystem">
+          <article class="product-card active reveal">
+            <span class="status live">Disponível agora</span>
+            <h3>Método SWAY</h3>
+            <p>Gatilhos + Script de WhatsApp para estruturar conversas comerciais e reduzir o improviso.</p>
+            <a class="mini-link" href="https://pay.kiwify.com.br/DbkFJGr" target="_blank" rel="noopener noreferrer">VER PRODUTO →</a>
+          </article>
 
-</section>
+          <article class="product-card placeholder reveal">
+            <span class="status soon">Em desenvolvimento</span>
+            <h3>Próximo produto SWAY</h3>
+            <p>Nova solução digital em desenvolvimento para complementar a jornada de vendas e comunicação.</p>
+          </article>
 
+          <article class="product-card placeholder reveal">
+            <span class="status soon">Em breve</span>
+            <h3>Nova solução</h3>
+            <p>Espaço reservado para os próximos produtos da linha VG.SWAY.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- FAQ -->
+    <!-- OFERTA -->
+    <section class="offer">
+      <div class="container">
+        <div class="offer-box reveal">
+          <div class="eyebrow">Menos improviso. Mais estratégia.</div>
+          <h2>Você não precisa adivinhar o que falar na próxima conversa.</h2>
+          <p>
+            Use o Método SWAY como referência para organizar sua abordagem, entender o cliente,
+            responder objeções e conduzir cada conversa para um próximo passo claro.
+          </p>
 
-<section class="section">
+          <div class="mini-checks">
+            <span>Acesso digital</span>
+            <span>Aplicação prática</span>
+            <span>Scripts adaptáveis</span>
+            <span>Checkout seguro</span>
+          </div>
 
-    <div class="container narrow">
+          <a class="cta" href="https://pay.kiwify.com.br/DbkFJGr" target="_blank" rel="noopener noreferrer">
+            QUERO O MÉTODO SWAY <span>→</span>
+          </a>
+          <div class="micro">Você será direcionado para o checkout da Kiwify.</div>
+        </div>
+      </div>
+    </section>
 
-        <div class="section-heading">
-
-            <p class="section-label">
-                DÚVIDAS
-            </p>
-
-            <h2>
-                Perguntas
-                <span>frequentes.</span>
-            </h2>
-
+    <!-- FAQ -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="eyebrow">Dúvidas frequentes</div>
+          <h2>Antes de acessar.</h2>
         </div>
 
+        <div class="faq reveal">
+          <details>
+            <summary>O Método SWAY serve somente para afiliados?</summary>
+            <p>Não. A estrutura pode ser adaptada por afiliados, prestadores de serviço, pequenos negócios, criadores e outras pessoas que usam WhatsApp em conversas comerciais.</p>
+          </details>
 
-        <details>
-            <summary>
-                O que é o Método SWAY?
-            </summary>
+          <details>
+            <summary>Eu preciso copiar as mensagens exatamente?</summary>
+            <p>Não. O próprio método foi pensado para que você adapte as estruturas ao contexto, ao produto e ao seu tom de voz. O objetivo é reduzir improviso, não robotizar a conversa.</p>
+          </details>
 
-            <p>
-                É um material digital focado em gatilhos de comunicação
-                e scripts para ajudar na condução de conversas de vendas
-                pelo WhatsApp.
-            </p>
+          <details>
+            <summary>O material ensina como lidar com objeções?</summary>
+            <p>Sim. O conteúdo aborda objeção de preço, “vou pensar”, fechamento e formas de retomar conversas que esfriaram.</p>
+          </details>
 
-        </details>
+          <details>
+            <summary>Como recebo o material?</summary>
+            <p>A compra é feita pelo checkout da Kiwify. Depois da confirmação, o acesso ao produto digital é entregue conforme as instruções da plataforma.</p>
+          </details>
 
-
-        <details>
-            <summary>
-                Como recebo o produto?
-            </summary>
-
-            <p>
-                Após a confirmação do pagamento, você recebe as
-                instruções necessárias para acessar o produto digital.
-            </p>
-
-        </details>
-
-
-        <details>
-            <summary>
-                Preciso ter uma empresa?
-            </summary>
-
-            <p>
-                Não. O método pode ser utilizado por pessoas que
-                vendem produtos, serviços ou trabalham com vendas
-                pelo WhatsApp.
-            </p>
-
-        </details>
-
-
-        <details>
-            <summary>
-                Os scripts funcionam para qualquer produto?
-            </summary>
-
-            <p>
-                Os scripts são estruturas que podem ser adaptadas
-                para diferentes produtos, serviços e situações.
-            </p>
-
-        </details>
-
-
-        <details>
-            <summary>
-                O Método SWAY garante vendas?
-            </summary>
-
-            <p>
-                Não. O método oferece estratégias e materiais para
-                melhorar sua comunicação, mas não existe garantia
-                de vendas ou de resultados específicos.
-            </p>
-
-        </details>
-
-    </div>
-
-</section>
-
-
-<!-- CTA FINAL -->
-
-<section class="final-cta">
-
-    <div class="container narrow">
-
-        <div class="badge">
-            MÉTODO SWAY
+          <details>
+            <summary>O método garante vendas?</summary>
+            <p>Não. O Método SWAY é um material educacional de comunicação e vendas. Resultados dependem de fatores como produto, oferta, público, abordagem, execução e contexto.</p>
+          </details>
         </div>
+      </div>
+    </section>
 
-        <h2>
-            Suas próximas conversas
-            não precisam ser no improviso.
-        </h2>
+  </main>
 
-        <p>
-            Conheça o Método SWAY e tenha acesso a gatilhos e scripts
-            para estruturar melhor suas conversas pelo WhatsApp.
-        </p>
-
-        <a class="cta-button"
-            href="https://pay.kiwify.com.br/DbkFJGr"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            QUERO CONHECER O MÉTODO SWAY
-            <span>→</span>
-
-        </a>
-
-        <p class="secure-text">
-            Pagamento seguro • Acesso digital
-        </p>
-
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <div class="brand" style="margin-bottom:10px;"><span class="brand-mark">SW</span> VG.SWAY</div>
+        <p>© 2026 Método SWAY. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-right">
+        <p>Produto educacional. Não há garantia de resultados financeiros específicos.</p>
+        <p style="margin-top:5px;">Menos improviso. Mais estratégia na conversa.</p>
+      </div>
     </div>
+  </footer>
 
-</section>
+  <div class="mobile-cta">
+    <a class="cta" href="https://pay.kiwify.com.br/DbkFJGr" target="_blank" rel="noopener noreferrer">
+      QUERO O MÉTODO SWAY →
+    </a>
+  </div>
 
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="container">
-
-        <p>
-            © 2026 Método SWAY. Todos os direitos reservados.
-        </p>
-
-        <p>
-            Este produto não garante resultados financeiros específicos.
-        </p>
-
-    </div>
-
-</footer>
-
-
-
-<script>
-(function () {
+  <script>
+  (function () {
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw60yqZj0n3LwMYyHNOlHFz-W7EnDW2Jt6a33hP6nurkyHGcXTgIwGzBNztAb-91DxbGA/exec";
     const STORAGE_KEY = "sway_lead_completed";
 
@@ -928,141 +1465,146 @@ fbq('track', 'PageView');
     const whatsappInput = document.getElementById("lead-whatsapp");
 
     function lockPage() {
-        document.documentElement.classList.add("lead-locked");
-        document.body.classList.add("lead-locked");
+      document.documentElement.classList.add("lead-locked");
+      document.body.classList.add("lead-locked");
     }
 
     function unlockPage() {
-        if (gate) {
-            gate.style.display = "none";
-        }
-        document.documentElement.classList.remove("lead-locked");
-        document.body.classList.remove("lead-locked");
-        window.scrollTo({ top: 0, behavior: "instant" });
+      if (gate) gate.style.display = "none";
+      document.documentElement.classList.remove("lead-locked");
+      document.body.classList.remove("lead-locked");
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
 
     function getQueryParam(name) {
-        return new URLSearchParams(window.location.search).get(name) || "";
+      return new URLSearchParams(window.location.search).get(name) || "";
     }
 
     function sendLead(payload) {
-        const body = JSON.stringify(payload);
+      const body = JSON.stringify(payload);
 
-        fetch(GOOGLE_APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            cache: "no-store",
-            keepalive: true,
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: body
-        }).catch(function () {
-            try {
-                const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
-                navigator.sendBeacon(GOOGLE_APPS_SCRIPT_URL, blob);
-            } catch (e) {
-                console.error("Erro ao enviar lead:", e);
-            }
-        });
+      fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "no-store",
+        keepalive: true,
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: body
+      }).catch(function () {
+        try {
+          const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+          navigator.sendBeacon(GOOGLE_APPS_SCRIPT_URL, blob);
+        } catch (e) {
+          console.error("Erro ao enviar lead:", e);
+        }
+      });
     }
 
     try {
-        if (localStorage.getItem(STORAGE_KEY) === "1") {
-            unlockPage();
-        } else {
-            lockPage();
-        }
-    } catch (e) {
+      if (localStorage.getItem(STORAGE_KEY) === "1") {
+        unlockPage();
+      } else {
         lockPage();
+      }
+    } catch (e) {
+      lockPage();
     }
 
     if (whatsappInput) {
-        whatsappInput.addEventListener("input", function () {
-            let v = this.value.replace(/\D/g, "").slice(0, 11);
+      whatsappInput.addEventListener("input", function () {
+        let v = this.value.replace(/\D/g, "").slice(0, 11);
 
-            if (v.length > 10) {
-                v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
-            } else if (v.length > 6) {
-                v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1) $2-$3");
-            } else if (v.length > 2) {
-                v = v.replace(/^(\d{2})(\d+)/, "($1) $2");
-            } else if (v.length > 0) {
-                v = v.replace(/^(\d{0,2})/, "($1");
-            }
+        if (v.length > 10) {
+          v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+        } else if (v.length > 6) {
+          v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1) $2-$3");
+        } else if (v.length > 2) {
+          v = v.replace(/^(\d{2})(\d+)/, "($1) $2");
+        } else if (v.length > 0) {
+          v = v.replace(/^(\d{0,2})/, "($1");
+        }
 
-            this.value = v;
-        });
+        this.value = v;
+      });
     }
 
     if (form) {
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            const nome = document.getElementById("lead-name").value.trim();
-            const whatsapp = document.getElementById("lead-whatsapp").value.trim();
-            const email = document.getElementById("lead-email").value.trim();
+        const nome = document.getElementById("lead-name").value.trim();
+        const whatsapp = document.getElementById("lead-whatsapp").value.trim();
+        const email = document.getElementById("lead-email").value.trim();
 
-            if (!nome || !whatsapp || !email) {
-                message.textContent = "Preencha Nome, WhatsApp e E-mail.";
-                return;
-            }
+        if (!nome || !whatsapp || !email) {
+          message.textContent = "Preencha Nome, WhatsApp e E-mail.";
+          return;
+        }
 
-            if (!/^\S+@\S+\.\S+$/.test(email)) {
-                message.textContent = "Digite um e-mail válido.";
-                return;
-            }
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+          message.textContent = "Digite um e-mail válido.";
+          return;
+        }
 
-            if (submitButton.disabled) {
-                return;
-            }
+        if (submitButton.disabled) return;
 
-            submitButton.disabled = true;
-            submitButton.textContent = "ENTRANDO...";
-            message.textContent = "";
+        submitButton.disabled = true;
+        submitButton.textContent = "ENTRANDO...";
+        message.textContent = "";
 
-            const payload = {
-                nome: nome,
-                whatsapp: whatsapp,
-                email: email,
-                origem: document.referrer || "Direto",
-                url: window.location.href,
-                utm_source: getQueryParam("utm_source"),
-                utm_medium: getQueryParam("utm_medium"),
-                utm_campaign: getQueryParam("utm_campaign"),
-                utm_content: getQueryParam("utm_content"),
-                utm_term: getQueryParam("utm_term"),
-                fbclid: getQueryParam("fbclid"),
-                user_agent: navigator.userAgent
-            };
+        const payload = {
+          nome: nome,
+          whatsapp: whatsapp,
+          email: email,
+          origem: document.referrer || "Direto",
+          url: window.location.href,
+          utm_source: getQueryParam("utm_source"),
+          utm_medium: getQueryParam("utm_medium"),
+          utm_campaign: getQueryParam("utm_campaign"),
+          utm_content: getQueryParam("utm_content"),
+          utm_term: getQueryParam("utm_term"),
+          fbclid: getQueryParam("fbclid"),
+          user_agent: navigator.userAgent
+        };
 
-            // Envia o lead em segundo plano.
-            sendLead(payload);
+        sendLead(payload);
 
-            // Registra o evento Lead no Meta Pixel.
-            if (typeof fbq === "function") {
-                fbq("track", "Lead");
-            }
+        if (typeof fbq === "function") {
+          fbq("track", "Lead");
+        }
 
-            // Não espera o Google responder para liberar o site.
-            try {
-                localStorage.setItem(STORAGE_KEY, "1");
-            } catch (e) {}
+        try {
+          localStorage.setItem(STORAGE_KEY, "1");
+        } catch (e) {}
 
-            unlockPage();
-        });
+        unlockPage();
+      });
     }
 
     document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(function (link) {
-        link.addEventListener("click", function () {
-            if (typeof fbq === "function") {
-                fbq("track", "InitiateCheckout");
-            }
-        });
+      link.addEventListener("click", function () {
+        if (typeof fbq === "function") {
+          fbq("track", "InitiateCheckout");
+        }
+      });
     });
-})();
-</script>
 
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+  </script>
 </body>
-
 </html>
+
