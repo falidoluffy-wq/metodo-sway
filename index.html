@@ -933,24 +933,54 @@ fbq('track', 'PageView');
     }
 
     function unlockPage() {
-        if (gate) gate.style.display = "none";
+        if (gate) {
+            gate.style.display = "none";
+        }
         document.documentElement.classList.remove("lead-locked");
         document.body.classList.remove("lead-locked");
+        window.scrollTo({ top: 0, behavior: "instant" });
     }
 
     function getQueryParam(name) {
         return new URLSearchParams(window.location.search).get(name) || "";
     }
 
-    if (localStorage.getItem(STORAGE_KEY) === "1") {
-        unlockPage();
-    } else {
+    function sendLead(payload) {
+        const body = JSON.stringify(payload);
+
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            cache: "no-store",
+            keepalive: true,
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: body
+        }).catch(function () {
+            try {
+                const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+                navigator.sendBeacon(GOOGLE_APPS_SCRIPT_URL, blob);
+            } catch (e) {
+                console.error("Erro ao enviar lead:", e);
+            }
+        });
+    }
+
+    try {
+        if (localStorage.getItem(STORAGE_KEY) === "1") {
+            unlockPage();
+        } else {
+            lockPage();
+        }
+    } catch (e) {
         lockPage();
     }
 
     if (whatsappInput) {
         whatsappInput.addEventListener("input", function () {
             let v = this.value.replace(/\D/g, "").slice(0, 11);
+
             if (v.length > 10) {
                 v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
             } else if (v.length > 6) {
@@ -960,12 +990,13 @@ fbq('track', 'PageView');
             } else if (v.length > 0) {
                 v = v.replace(/^(\d{0,2})/, "($1");
             }
+
             this.value = v;
         });
     }
 
     if (form) {
-        form.addEventListener("submit", async function (event) {
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const nome = document.getElementById("lead-name").value.trim();
@@ -982,14 +1013,18 @@ fbq('track', 'PageView');
                 return;
             }
 
+            if (submitButton.disabled) {
+                return;
+            }
+
             submitButton.disabled = true;
-            submitButton.textContent = "ENVIANDO...";
+            submitButton.textContent = "ENTRANDO...";
             message.textContent = "";
 
             const payload = {
-                nome,
-                whatsapp,
-                email,
+                nome: nome,
+                whatsapp: whatsapp,
+                email: email,
                 origem: document.referrer || "Direto",
                 url: window.location.href,
                 utm_source: getQueryParam("utm_source"),
@@ -1001,27 +1036,20 @@ fbq('track', 'PageView');
                 user_agent: navigator.userAgent
             };
 
-            try {
-                await fetch(GOOGLE_APPS_SCRIPT_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8"
-                    },
-                    body: JSON.stringify(payload)
-                });
+            // Envia o lead em segundo plano.
+            sendLead(payload);
 
-                if (typeof fbq === "function") {
-                    fbq("track", "Lead");
-                }
-
-                localStorage.setItem(STORAGE_KEY, "1");
-                unlockPage();
-            } catch (error) {
-                message.textContent = "Não foi possível enviar agora. Tente novamente.";
-                submitButton.disabled = false;
-                submitButton.innerHTML = 'CONTINUAR <span>→</span>';
+            // Registra o evento Lead no Meta Pixel.
+            if (typeof fbq === "function") {
+                fbq("track", "Lead");
             }
+
+            // Não espera o Google responder para liberar o site.
+            try {
+                localStorage.setItem(STORAGE_KEY, "1");
+            } catch (e) {}
+
+            unlockPage();
         });
     }
 
